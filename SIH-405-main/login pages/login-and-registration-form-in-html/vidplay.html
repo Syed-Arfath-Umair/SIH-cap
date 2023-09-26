@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UdaanShiksha Classroom</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #0074D9;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .header-button {
+            background-color: #0074D9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .header-button:hover {
+            background-color: #0056b3;
+        }
+
+        #course-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #category-list, #lesson-list {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+            cursor: pointer;
+            font-weight: bold;
+            color: #0074D9;
+            transition: color 0.3s;
+        }
+
+        ul li:hover {
+            color: #0056b3;
+        }
+
+        #video-player {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="header-button" id="back-home-button" onclick="window.location.href = 'home-pat.html'">Back to Home</button>
+        <h1>UdaanShiksha Classroom</h1>
+        <button class="header-button" id="back-button" style="display: none;">Back to Categories</button>
+    </header>
+    <div id="course-container">
+        <h2>Video Categories</h2>
+        <ul id="category-list">
+            <li data-category="vocal-impaired">Vocal Impaired</li>
+            <li data-category="visual-impaired">Visual Impaired</li>
+            <li data-category="hearing-impaired">Hearing Impaired</li>
+            <!-- Add more categories as needed -->
+        </ul>
+    </div>
+    <div id="lesson-list" style="display: none;">
+        <h2>Lessons</h2>
+        <ul id="lesson-items">
+            <!-- Lessons will be populated dynamically using JavaScript -->
+        </ul>
+    </div>
+    <div id="video-player" style="display: none;">
+        <h2>Video Player</h2>
+        <video controls id="lesson-video">
+            <!-- Video source will be populated dynamically using JavaScript -->
+        </video>
+    </div>
+
+    <script>
+        // JavaScript to handle category selection, lesson selection, and back button
+        const categoryList = document.getElementById('category-list');
+        const backButton = document.getElementById('back-button');
+        const courseContainer = document.getElementById('course-container');
+        const lessonList = document.getElementById('lesson-list');
+        const lessonItems = document.getElementById('lesson-items');
+        const videoPlayer = document.getElementById('video-player');
+        const lessonVideo = document.getElementById('lesson-video');
+
+        const lessons = {
+            'vocal-impaired': [
+                { title: 'Lesson 1', videoSource: 'hand.mp4'},
+                { title: 'Lesson 2', videoSource: 'handsigns.mp4' },
+                // Add more lessons for this category as needed
+            ],
+            'visual-impaired': [
+                { title: 'Lesson 1', videoSource: 'hand.mp4' },
+                { title: 'Lesson 2', videoSource: 'handsigns.mp4' },
+                // Add more lessons for this category as needed
+            ],
+            'hearing-impaired': [
+                { title: 'Lesson 1', videoSource: 'hand.mp4' },
+                { title: 'Lesson 2', videoSource: 'handsigns.mp4' },
+                // Add more lessons for this category as needed
+            ],
+            // Add more categories with their respective lessons
+        };
+
+        categoryList.addEventListener('click', (e) => {
+            if (e.target.tagName === 'LI') {
+                const category = e.target.getAttribute('data-category');
+                populateLessonList(category);
+            }
+        });
+
+        backButton.addEventListener('click', () => {
+            lessonList.style.display = 'none';
+            videoPlayer.style.display = 'none';
+            courseContainer.style.display = 'block';
+        });
+
+        function populateLessonList(category) {
+            const categoryLessons = lessons[category];
+
+            if (categoryLessons) {
+                lessonItems.innerHTML = '';
+
+                categoryLessons.forEach((lesson, index) => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = lesson.title;
+                    listItem.addEventListener('click', () => {
+                        playLesson(category, index);
+                    });
+
+                    lessonItems.appendChild(listItem);
+                });
+
+                courseContainer.style.display = 'none';
+                lessonList.style.display = 'block';
+            }
+        }
+
+        function playLesson(category, index) {
+            const lesson = lessons[category][index];
+            lessonVideo.src = lesson.videoSource;
+            videoPlayer.style.display = 'block';
+            backButton.style.display = 'block';
+            lessonList.style.display = 'none';
+            lessonVideo.play();
+        }
+    </script>
+</body>
+</html>

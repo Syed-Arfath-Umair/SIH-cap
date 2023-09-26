@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cognitive Ability Test - Aptitude-Test.com</title>
+<meta name="description" content="Cognitive Ability Test, free aptitude test at Aptitude-test.com" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../../../graphic/icon.ico" >
+
+
+<script async src="./cognitive.js"></script>
+<style>
+	.subTestDetailAll {
+		width:100%;
+		height:50px;
+		margin-bottom:10px;
+	}	
+	.subTestDetail {
+		width:400px;
+		height:50px;
+		margin:5px auto;
+		line-height: 30px;
+	}	
+	.subTestDetailLeft {
+		width:60%;
+		float:left;
+		font-weight:bold;
+	}
+	.subTestDetailRight {
+		width:40%;
+		float:left;
+	}
+</style>
+
+<link rel="stylesheet" href="../../../membership/resources/css/teststyle.css">
+<link rel="stylesheet" href="../../../membership/resources/css/teststylesverymall.css" media="screen and (max-width: 599px)">
+<link rel="stylesheet" href="../../../membership/resources/css/teststylesmall.css" media="screen and (max-width: 799px)and (min-width: 600px)">
+<link rel="stylesheet" href="../../../membership/resources/css/teststylelarge.css" media="screen and (min-width: 800px)">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML" async></script>
+<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/13f0937c9a19e6d763798688.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S5HXY11GNX"></script>
+<script src="https://www.aptitude-test.com/js/googleanalytics.js"></script>
+<!-- Hotjar Tracking Code for www.aptitude-test.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2262239,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+</head>
+<body>	
+	<button class="skip-button" onclick="window.location.href='home-pat.html'">Back Home</button>
+	<div id="topBarHolder"></div>
+	<div id="overlayWhite"></div>
+	<div id="contentHolder">
+		<div id="testDescription" style="margin-bottom: 10px;">
+			<h1 align="center">Cognitive Ability Test</h1><p>This assessment will measure your overall cognitive ability. The test contains four sections:</p>
+			<ol>
+				<li>Verbal reasoning sub-test</li>
+				<li>Spatial reasoning sub-test</li>
+				<li>Abstract reasoning sub-test</li>
+				<li>Quantitative reasoning sub-test</li>
+			</ol>
+			<p>Your results will be displayed after each sub-test, and your overall score will be given after completing all four sub-tests.<br><br>
+			<b>Note:</b>
+After completing your first sub-test, you must answer some questions about yourself before you can view your results. The data we gather on you is used for anonymous research. We will not ask for your email or other contact details. The test and test results are provided free of charge; you will not be asked to pay to receive your results.<br><br>
+			To begin, select one of the three tests below. The test will open in a new window.</p>
+		</div>
+			<div class="subTestDetail">
+				<div class="subTestDetailLeft">1) Verbal Reasoning</div>
+				<div class="subTestDetailRight" id="verbalText"><div class="normalButton normalGreenButton" id="startVerbal"><button> Open Test</button></div></div>
+			</div>
+		<div class="subTestDetail">
+				<div class="subTestDetailLeft">2) Spatial Reasoning</div>
+				<div class="subTestDetailRight" id="spatialText"><div class="normalButton normalGreenButton" id="startSpatial" ><form action="verbal.html"><button> Open Test</button></form></div></div>
+			</div>
+			<div class="subTestDetail">
+				<div class="subTestDetailLeft">3) Abstract Reasoning</div>
+				<div class="subTestDetailRight" id="abstractText"><div class="normalButton normalGreenButton" id="startAbstract" onClick="openAbstract()"><button> Open Test</button></div></div>
+			</div>
+			<div class="subTestDetail">
+				<div class="subTestDetailLeft">4) Quantitative Reasoning</div>
+				<div class="subTestDetailRight" id="quantitativeText"><div class="normalButton normalGreenButton" id="startQuantitative" onClick="openQuantitative()"><button> Open Test</button></div></div>
+			</div>
+		<br>
+			<div class="subTestDetailAll">
+				<h2 align="center">Overall results</h2>
+				<div id = "overallText">
+				<p align="center">
+				0 of 4 tests completed. Complete all three tests to receive your overall results.</p>
+				</div>
+			</div>
+	</div>
+</body>
+</html>
